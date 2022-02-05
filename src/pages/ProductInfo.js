@@ -4,6 +4,7 @@ import { getDoc, doc } from "firebase/firestore";
 import fireDB from "../fireConfig";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+
 function ProductInfo() {
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(false);

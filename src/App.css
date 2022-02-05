@@ -2,7 +2,7 @@
   width: 100vw;
   height: 100vh;
   background: #faf9fb;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 .App::-webkit-scrollbar {

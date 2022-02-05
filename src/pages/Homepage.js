@@ -5,7 +5,6 @@ import fireDB from "../fireConfig";
 import { fireproducts } from "../firecommerce-products";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "bootstrap";
 
 function Homepage() {
   const [products, setProducts] = useState([]);
@@ -61,8 +60,8 @@ function Homepage() {
   }
 
   return (
-    <Layout>
-      <div class="scroll">
+    <Layout loading={loading}>
+      <div class="h-40 overflow-visible">
         <div className="d-flex w-50 align-items-center my-3 justify-content-center">
           <input
             type="text"
@@ -83,14 +82,15 @@ function Homepage() {
           >
             <option value="">All</option>
             <option value="electronics">Electronics</option>
-            <option value="mobiles">Mobiles</option>
-            <option value="fashion">Fashion</option>
+            <option value="food">Food</option>
+            <option value="drink">Drink</option>
+            <option value="snacks">Snacks</option>
           </select>
         </div>
         <div className="row">
             <div>
-              <button onClick={addProductData}> Add Data to firebase</button>
-              <button onClick={getData}> Get Data from firebase</button>
+              <button onClick={addProductData}> Add Product</button>
+              <button onClick={getData}> Display Product</button>
             </div>
             {products
             .filter((obj) => obj.name.toLowerCase().includes(searchKey))
@@ -110,7 +110,7 @@ function Homepage() {
                       </div>
                     </div>
                     <div className="product-actions">
-                      <h2>{product.price} RS/-</h2>
+                      <h2>₦{product.price}</h2>
                       <div className="d-flex">
                         <button
                           className="mx-2"
